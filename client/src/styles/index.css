@@ -1,0 +1,18 @@
+@tailwind base; @tailwind components; @tailwind utilities;
+body { @apply bg-bg text-ink antialiased; font-family: Inter, system-ui, sans-serif;
+  background-image: radial-gradient(circle at 85% 0%, rgba(124,58,237,.18), transparent 40%), radial-gradient(circle at 0% 100%, rgba(217,70,239,.08), transparent 40%); background-attachment: fixed; }
+@layer components {
+  .glass { @apply rounded-2xl border border-violet/30 bg-surface/60 backdrop-blur shadow-[0_0_24px_rgba(124,58,237,.12)]; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold transition disabled:opacity-50; }
+  .btn-primary { @apply btn bg-gradient-to-r from-lav to-violet text-white hover:brightness-110; }
+  .btn-ghost { @apply btn border border-violet/40 text-ink hover:bg-violet/20; }
+  .input { @apply w-full rounded-xl border border-violet/30 bg-bg/70 px-3 py-2 text-sm outline-none focus:border-lav placeholder:text-slate-500; }
+  .label { @apply mb-1 block text-xs font-medium text-slate-300; }
+  .badge { @apply rounded-full bg-violet/25 px-2.5 py-0.5 text-xs capitalize; }
+}
+@media print {
+  body { background: #fff !important; color: #000 !important; }
+  aside, .no-print { display: none !important; }
+  .glass { background: #fff !important; border: 1px solid #bbb !important; box-shadow: none !important; color: #000 !important; }
+  main { padding: 0 !important; }
+}
